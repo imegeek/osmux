@@ -1,0 +1,54 @@
+#!/data/data/com.termux/files/usr/bin/bash
+sleep 0.8
+echo -e "\e[38;2;255;0;150m
+                   .#############.#
+                #######.       .######/
+              #####                (#####
+          . /##(                     #####
+           ##(            *##*,(*     ###
+          ###           #              ##
+          ##           #               ##
+          ##           #/        *    ##
+          ##           .#/           ##
+          ##(            .##     *##
+           ###                #
+            ###
+             ###
+               ###
+                  ##/
+                     *##
+
+\e[1;97m
+      @@          @@
+      @@          @@        \e[38;2;255;0;150m⧫\e[1;97m
+ *@@@@@@   @@@@  (@@ @@@   @@(  @@@@@&  /@@ @@@@
+@@    @@ @@   *@@(@@   @@@ @@       #@@  @@   &@@
+@@    @@ @@@@@@@@(@@   *@@ @@  .@@@(#@@  @@   (@@
+@@    @@ @@      (@@   @@  @@  @@   @@@  @@   /@@
+ @@@@ @@  &@@@@@*@@@@@@@   @@( @@@@@.@@  @@   @@@\e[1m\e[38;2;255;0;150m"
+echo
+echo
+echo -n "Are you want to continue installing (Y/N)? "
+read input
+if [[ $input = "Y" ]] || [[ $input = "y" ]]
+then connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
+if [[ "$connection" != 0 ]]
+then
+echo -e "\033[1;91m                [\033[1;92m-\033[1;91m] No Internet\033[1;92m connection!"
+echo
+   exit
+fi
+sleep 1.5
+cd $HOME
+mkdir debian > /dev/null 2>&1
+cd debian
+echo
+echo -e '\033[1m\033[38;2;0;80;255m[^_^] Debian Installing Starting...'
+sleep 1
+echo
+pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Debian/debian-xfce.sh && chmod +x debian-xfce.sh &&  bash debian-xfce.sh
+elif [[ $input = "N" ]] || [[ $input = "n" ]]
+then echo -e '\033[0m\033[1mAbort.'
+echo
+exit
+fi

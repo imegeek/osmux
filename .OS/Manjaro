@@ -1,0 +1,51 @@
+#!/data/data/com.termux/files/usr/bin/bash
+sleep 0.8
+
+c1='\e[0;1;92m'
+
+echo -e "\n\n   ${c1}██████████████████  ████████
+   ██████████████████  ████████
+   ██████████████████  ████████
+   ██████████████████  ████████
+   ████████            ████████
+   ████████  ████████  ████████
+   ████████  ████████  ████████
+   ████████  ████████  ████████
+   ████████  ████████  ████████
+   ████████  ████████  ████████
+   ████████  ████████  ████████
+   ████████  ████████  ████████
+   ████████  ████████  ████████
+   ████████  ████████  ████████"
+
+echo -e "\e[0;1m
+ █▀▄▀█ █▀▀█ █▀▀▄   ▀ █▀▀█ █▀▀█ █▀▀█
+ █ █ █ █▄▄█ █  █   █ █▄▄█ █▄▄▀ █  █
+ █   █ ▀  ▀ ▀  ▀ █▄█ ▀  ▀ ▀ ▀▀ ▀▀▀▀"
+
+echo
+echo
+echo -ne "${c1}Are you want to continue installing (Y/N)? "
+read input
+if [[ $input = "Y" ]] || [[ $input = "y" ]]
+then connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
+if [[ "$connection" != 0 ]]
+then
+echo -e "\033[1;91m          [\033[1;92m-\033[1;91m] No Internet\033[1;92m connection!"
+echo
+   exit
+fi
+sleep 1.5
+cd $HOME
+mkdir manjaro > /dev/null 2>&1
+cd manjaro
+echo
+echo -e '\033[1m\033[38;2;0;80;255m[^_^] Manjaro Installing Starting...'
+sleep 1
+echo
+pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Manjaro/manjaro-xfce.sh && chmod +x manjaro-xfce.sh && bash manjaro-xfce.sh
+elif [[ $input = "N" ]] || [[ $input = "n" ]]
+then echo -e '\033[0m\033[1mAbort.'
+echo
+exit
+fi

@@ -1,0 +1,59 @@
+#!/data/data/com.termux/files/usr/bin/bash
+sleep 0.8
+
+c1='\e[0;1;94m'
+c2='\e[0;1;77m'
+c3='\e[0;1;38;2;0;100;255m'
+
+echo -e "\n\n    ${c1}          /:-------------:\\
+           :-------------------::
+         :-----------${c2}/shhOHbmp${c1}---:\\
+       /-----------${c2}omMMMNNNMMD  ${c1}---:
+      :-----------${c2}sMMMMNMNMP${c1}.    ---:
+     :-----------${c2}:MMMdP${c1}-------    ---\\
+    ,------------${c2}:MMMd${c1}--------    ---:
+    :------------${c2}:MMMd${c1}-------    .---:
+    :----    ${c2}oNMMMMMMMMMNho${c1}     .----:
+    :--     .${c2}+shhhMMMmhhy++${c1}   .------/
+    :-    -------${c2}:MMMd${c1}--------------:
+    :-   --------${c2}/MMMd${c1}-------------;
+    :-    ------${c2}/hMMMy${c1}------------:
+    :--${c2} :dMNdhhdNMMNo${c1}------------;
+    :---${c2}:sdNMMMMNds:${c1}------------:
+    :------${c2}:://:${c1}-------------::
+    :---------------------://"
+
+echo -e "${c3}
+    ,d8888b          d8b
+   88P'             88P
+d888888P           d88
+  ?88'  d8888b d888888   d8888b   88bd88b d888b8b
+  88P  d8b_,dPd8P  ?88  d8P  ?88  88P    d8P  ?88
+ d88   88b    88b  ,88b 88b  d88 d88     88b  ,88b
+d88     ?888P' ?88P''88b'?8888P d88       ?88P''88b${c2}"
+
+echo
+echo -n "Are you want to continue installing (Y/N)? "
+read input
+if [[ $input = "Y" ]] || [[ $input = "y" ]]
+then connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
+if [[ "$connection" != 0 ]]
+then
+echo -e "\033[1;91m          [\033[1;92m-\033[1;91m] No Internet\033[1;92m connection!"
+echo
+   exit
+fi
+sleep 1.5
+cd $HOME
+mkdir fedora > /dev/null 2>&1
+cd fedora
+echo
+echo -e '\033[1m\033[38;2;0;80;255m[^_^] Fedora Installing Starting...'
+sleep 1
+echo
+pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Fedora/fedora-xfce.sh && chmod +x fedora-xfce.sh && bash fedora-xfce.sh
+elif [[ $input = "N" ]] || [[ $input = "n" ]]
+then echo -e '\033[0m\033[1mAbort.'
+echo
+exit
+fi

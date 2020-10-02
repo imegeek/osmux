@@ -1,0 +1,61 @@
+#!/data/data/com.termux/files/usr/bin/bash
+sleep 0.8
+
+c1='\e[0;1;96m'
+c2='\e[0;1;38;2;0;180;180m'
+
+echo -e "\n\n${c1}                   y:
+                  sMN-
+                 +MMMm'
+                /MMMMMd'
+               :NMMMMMMy
+              -NMMMMMMMMs
+             .NMMMMMMMMMM+
+            ${c2}.mMMMMMMMMMMMM+
+            oNMMMMMMMMMMMMM+
+          '+'-+NMMMMMMMMMMMM+
+          .sNMNhNMMMMMMMMMMMM/${c1}
+        'hho/sNMMMMMMMMMMMMMMM/
+       '.'omMMmMMMMMMMMMMMMMMMM+
+      .mMNdshMMMMd+::oNMMMMMMMMMo
+     .mMMMMMMMMM+     'yMMMMMMMMMs
+    .NMMMMMMMMM/        yMMMMMMMMMy
+   -NMMMMMMMMMh         'mNMMMMMMMMd'
+  /NMMMNds+:.'             '-/oymMMMm.
+ +Mmy/.                          ':smN:
+/+.                                  -o."
+
+echo -e '\e[0;1m
+       e                     888
+      d8b     888-~\  e88~~\ 888-~88e
+     /Y88b    888    d888    888  888
+    /  Y88b   888    8888    888  888
+   /____Y88b  888    Y888    888  888
+  /      Y88b 888     "88__/ 888  888'
+
+
+echo
+echo -ne "\n${c1}Are you want to continue installing (Y/N)? "
+read input
+if [[ $input = "Y" ]] || [[ $input = "y" ]]
+then connection="$(ping -c 1 -q www.google.com >&/dev/null; echo $?)"
+if [[ "$connection" != 0 ]]
+then
+echo -e "\033[1;91m          [\033[1;92m-\033[1;91m] No Internet\033[1;92m connection!"
+echo
+   exit
+fi
+sleep 1.5
+cd $HOME
+mkdir arch > /dev/null 2>&1
+cd arch
+echo
+echo -e '\033[1m\033[38;2;0;80;255m[^_^] Arch Installing Starting...'
+sleep 1
+echo
+pkg update -y && pkg install wget curl proot tar -y && wget https://raw.githubusercontent.com/AndronixApp/AndronixOrigin/master/Installer/Arch/armhf/arch-xfce.sh && chmod +x arch-xfce.sh &&bash arch-xfce.sh
+elif [[ $input = "N" ]] || [[ $input = "n" ]]
+then echo -e '\033[0m\033[1mAbort.'
+echo
+exit
+fi
