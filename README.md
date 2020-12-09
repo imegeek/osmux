@@ -5,15 +5,25 @@
 ![GitHub forks](https://img.shields.io/github/forks/abhackerofficial/OSMUX.svg?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/abhackerofficial/OSMUX.svg?style=social)
 
-![OSMUX](https://user-images.githubusercontent.com/63346676/94906486-2ff6d380-04bc-11eb-9c46-e41dbcc873df.jpg)
+![preview](https://user-images.githubusercontent.com/63346676/101700775-a3f8bd80-3aa3-11eb-9a4d-69ff843dc4c9.jpg)
 
 #### • The Tool will Automatically Install Following Operation Systems:
 ```
 Ubuntu, Kali Linux, Debian,
 Alpine, Arch, Void, Fedora, Manjaro
 ```
-### • Installation Commands :
+> Basic Installation :
+
+| Method    | Command
+|:----------|:--------------------------------------------------------------------------------------------------|
+|  **curl** |`curl --progress-bar -L --fail --retry 4 -O https://github.com/abhackerofficial/osmux/raw/master/osmux.deb ;apt install ./osmux.deb` |
+
+> Manual Installation :
+```bash
+git clone https://github.com/abhackerofficial/osmux
+cd osmux
+apt install ./osmux.deb
 ```
-apt update ; apt --assume-yes install git -y ; git clone https://github.com/abhackerofficial/
-OSMUX ; cd OSMUX ; bash osmux
-```
+
+> Usage :
++ $ osmux
