@@ -5,7 +5,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/abhackerofficial/OSMUX.svg?style=social)
 ![GitHub watchers](https://img.shields.io/github/watchers/abhackerofficial/OSMUX.svg?style=social)
 
-![preview](https://user-images.githubusercontent.com/63346676/101700775-a3f8bd80-3aa3-11eb-9a4d-69ff843dc4c9.jpg)
+![preview](https://user-images.githubusercontent.com/63346676/101701308-aa3b6980-3aa4-11eb-874b-5b0c6bebff30.jpg)
 
 #### • The Tool will Automatically Install Following Operation Systems:
 ```
